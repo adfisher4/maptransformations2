@@ -1,0 +1,80 @@
+﻿
+
+<html>
+<head>
+<script src="jquery-3.4.1.min.js"></script>
+
+
+</head>
+<body>
+
+<div class="row justify-content-around mt-3">
+    <div class="col-6">
+        <h1 style="font-family: impact" class="text-dark ml-4 mt-3">Mapping Transformations</h1>
+    </div>
+    <div class='col-2 mt-4 mr-5 text-center'>
+        <h4 class="border border-success bg-success text-white rounded-pill p-2 text-center">Score: @ViewBag.Score</h4>
+        <a href="/rules">Game Rules</a>
+    </div>
+</div>
+
+<div class="row justify-content-around">
+    
+<div class="col-7">
+    
+    <a href="/@ViewBag.Level" id="NextLevel" class="btn btn-success mt-3 pl-5 pr-5 shadow">Next Level</a>
+   
+    <div class="row justify-content-between">
+    <canvas name="grid" id="canvas" width="620px" height="620px" style="background: #fff; margin:5px; padding:5px;"></canvas><br>
+        <div class="col-3 ml-2">
+    <h5>Level: @ViewBag.Level</h5>
+        </div>
+    
+    <div class="col-3"><a href="/reset" class="btn btn-danger">Reset Game</a> </div>
+    </div>
+    
+   </div>
+   <div class="col-sm-5 col-10 mt-5">
+       <h3>Select Transformation</h3>
+       <br>
+        <partial name="TranslationPartial" controller="Action"></partial>
+       <br>
+        <partial name="ReflectionPartial" controller="Action"></partial>
+       <br>
+        <br>
+        <partial name="RotationPartial" controller="Action"></partial>
+        <br>
+        <div class="justify-contents-end">
+        </div>
+
+       </div> 
+   </div> 
+   <br>
+   @section Scripts{ 
+        <script> 
+            var points = [];
+            points.push(@ViewBag.Ax);
+            points.push(@ViewBag.Ay);
+            points.push(@ViewBag.Bx);
+            points.push(@ViewBag.By);
+            points.push(@ViewBag.Cx);
+            points.push(@ViewBag.Cy);
+            points.push(@ViewBag.Dx);
+            points.push(@ViewBag.Dy);
+
+            var goalPoints = [];
+            goalPoints.push(@ViewBag.goalAx);
+            goalPoints.push(@ViewBag.goalAy);
+            goalPoints.push(@ViewBag.goalBx);
+            goalPoints.push(@ViewBag.goalBy);
+            goalPoints.push(@ViewBag.goalCx);
+            goalPoints.push(@ViewBag.goalCy);
+            goalPoints.push(@ViewBag.goalDx);
+            goalPoints.push(@ViewBag.goalDy);
+
+        </script>
+
+   } 
+</body>
+</html>
+
